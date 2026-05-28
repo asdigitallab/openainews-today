@@ -16,6 +16,14 @@ function SignalItem({ item }) {
         hype-o-meter: <b>{bar(item.hype, 10)}</b> {item.hype}/100 &nbsp;·&nbsp; will
         anyone use this: <b>{item.use}</b>
       </div>
+      {item.source?.url && (
+        <div className="src">
+          // source:{' '}
+          <a href={item.source.url} target="_blank" rel="noreferrer">
+            {item.source.name} ↗
+          </a>
+        </div>
+      )}
     </div>
   )
 }

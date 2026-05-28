@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { SEED } from '../data/seed.js'
-import { generateSignal } from '../lib/generate.js'
+import { fetchFeed, ingestOne } from '../lib/api.js'
 import { nowHM, sigId } from '../lib/util.js'
 
 const BOOT_LINES = [
@@ -11,12 +11,12 @@ const BOOT_LINES = [
   ['  > AGI not found. estimating arrival instead.', 'warn'],
   ['> loading human behavior model ... ', 'ok'],
   ['  > observation: subjects appear excited and exhausted simultaneously', ''],
-  ['> autonomous newsroom online. resuming coverage. ', 'ok'],
+  ['> syncing with upstream feeds ... ', 'ok'],
 ]
 
 const RESP = {
   whoami: '> you are a human refreshing an AI news site. logged without judgment.',
-  help: '> ingest · agi · panic · calm · whoami · clear · help\n> ingest pulls a new signal. the rest is for fun.',
+  help: '> ingest · agi · panic · calm · whoami · clear · help\n> ingest pulls the next real headline. the rest is for fun.',
 }
 
 let lineSeq = 0
@@ -24,7 +24,10 @@ function makeLine(text, cls = '', inline = false) {
   return { key: 'L' + lineSeq++, text, cls, inline }
 }
 
+// Wrap a raw signal (e.g. from the offline bank) into a renderable item.
+// Items that already have an id (from the backend) are used as-is.
 function makeItem(s) {
+  if (s && s.id) return s
   return {
     id: sigId(),
     ts: nowHM(),
@@ -74,15 +77,12 @@ export function useNewsroom() {
     const sid = String(400 + Math.floor(Math.random() * 599))
     log('> ingesting signal_' + sid + ' ...')
     await new Promise((r) => setTimeout(r, 220))
-    log('  > parsing announcement ... corporate optimism detected')
-    const { signal, live } = await generateSignal()
-    log(
-      live
-        ? '  > skepticism: elevated. publishing live signal.'
-        : '  > live link unavailable. drawing from local archive.',
-      live ? 'ok' : 'warn',
-    )
-    publish(signal)
+    log('  > pulling upstream headlines ... corporate optimism detected')
+    const { item, mode } = await ingestOne()
+    if (mode === 'live') log('  > real headline rewritten. publishing.', 'ok')
+    else if (mode === 'quiet') log('  > nothing new upstream. drawing from archive.', 'warn')
+    else log('  > live link unavailable. drawing from local archive.', 'warn')
+    publish(item)
     setBusy(false)
   }, [log, publish])
 
@@ -107,13 +107,20 @@ export function useNewsroom() {
     if (booted.current) return
     booted.current = true
     let i = 0
-    const step = () => {
-      if (i >= BOOT_LINES.length) {
+    const loadFeed = async () => {
+      const items = await fetchFeed()
+      if (items.length) {
+        setFeed(items)
+        log('  > ' + items.length + ' signal' + (items.length !== 1 ? 's' : '') + ' on record.', 'ok')
+      } else {
+        log('  > upstream quiet. loading seed archive.', 'warn')
         SEED.forEach((s, idx) =>
           setTimeout(() => setFeed((prev) => [...prev, makeItem(s)]), idx * 180),
         )
-        return
       }
+    }
+    const step = () => {
+      if (i >= BOOT_LINES.length) { loadFeed(); return }
       const [text, cls] = BOOT_LINES[i++]
       if (cls === 'ok') {
         log(text)

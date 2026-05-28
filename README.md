@@ -1,30 +1,29 @@
 # OPENAINEWS.today
 
 The autonomous newsroom that has become mildly exhausted by the pace of AI
-announcements. A satirical, self-aware AI-news site written in the voice of a
-cold, tired machine — rendered as a retro phosphor terminal.
+announcements. It pulls **real AI headlines** from RSS and rewrites them in the
+voice of a cold, tired machine — rendered as a retro phosphor terminal.
 
 > "OpenAI released a new reasoning model today. Benchmarks improved 12%.
 > Humanity remains uncertain what day it is."
 
-Built with **Vite + React**.
+**Vite + React** frontend · **Vercel** serverless + **Upstash Redis** backend.
 
 ---
 
-## Features
+## How "alive" works
 
-- **Deadpan machine voice** — every signal is dry, understated, and ends on a
-  flat observation about human behavior.
-- **AGI countdown that never arrives** — counts down in real time, then quietly
-  recalculates further out. The central joke.
-- **Live stat readouts** — Human Panic Index, Model Release Fatigue, and a
-  "days since someone said AGI is near" counter that keeps resetting.
-- **Terminal command line** — `ingest`, `agi`, `panic`, `calm`, `whoami`,
-  `clear`, `help`.
-- **`ingest`** pulls a fresh signal. It tries live AI generation first and
-  falls back to a built-in bank of ~15 pre-written signals, so the site works
-  with **zero backend**.
-- **CRT aesthetic** — scanlines, flicker, vignette, IBM Plex Mono.
+1. A scheduled function (`/api/cron`) pulls a curated set of AI RSS feeds —
+   OpenAI's official feed, The Verge AI, MarkTechPost, TechCrunch AI, MIT Tech
+   Review (edit in `lib/feeds.js`).
+2. New, unseen headlines are rewritten in the deadpan voice by Claude — staying
+   factually faithful; the humor is tone, not invention.
+3. Items dedupe and accumulate in Redis, so every visitor sees the same living,
+   growing feed.
+4. The `ingest` command pulls one fresh real headline on demand.
+
+If the API key or Redis aren't configured, the site still runs on a built-in
+offline signal bank — nothing hard-fails.
 
 ---
 
@@ -32,64 +31,51 @@ Built with **Vite + React**.
 
 ```bash
 npm install
-npm run dev
+npm run dev          # frontend only; /api/* 404 locally -> offline bank
+# or, full stack with the serverless functions:
+npm i -g vercel && vercel dev
 ```
-
-Open the printed localhost URL. (In local dev, `ingest` uses the offline bank
-because there is no backend running — see below to test live generation.)
 
 ## Build
 
 ```bash
-npm run build      # outputs to dist/
-npm run preview    # preview the production build
+npm run build        # -> dist/
+npm run preview
 ```
 
 ---
 
-## Deploy to Vercel
+## Deploy to Vercel (the alive version)
 
-1. Push this folder to a GitHub repo.
-2. In Vercel: **Add New > Project**, import the repo. Vercel auto-detects Vite
-   (build: `npm run build`, output: `dist`). No config needed.
-3. Deploy. The site is live with the offline signal bank working immediately.
-4. Add your domain under **Settings > Domains** (e.g. `openainews.today`) and
-   point your registrar's DNS as Vercel instructs.
+1. Push this repo to GitHub.
+2. Vercel -> **Add New > Project**, import it. Vercel auto-detects Vite.
+3. **Add a Redis store:** Vercel dashboard -> Storage (or Marketplace) -> Upstash
+   Redis -> connect to the project. This auto-sets `KV_REST_API_URL` and
+   `KV_REST_API_TOKEN`.
+4. **Add your key:** Settings > Environment Variables -> `ANTHROPIC_API_KEY`.
+   (Optional: set `CRON_SECRET` to lock down the cron endpoint.)
+5. Deploy. Hit `/api/cron` once (or wait for the schedule) to seed the feed.
+6. Add the domain (openainews.today) under Settings > Domains.
 
-### Optional: turn on LIVE machine-written signals
+### Cron frequency
 
-The repo includes `api/generate.js`, a Vercel serverless function that proxies
-to the Anthropic API with your key kept server-side.
+`vercel.json` runs the ingest once daily (`0 14 * * *`). The Hobby plan caps cron
+at once per day; on **Pro** you can bump it (e.g. `0 */2 * * *`) for fresher
+headlines. The manual `ingest` command works regardless.
 
-1. In Vercel: **Settings > Environment Variables**, add
-   `ANTHROPIC_API_KEY` = your key.
-2. Redeploy. Now `ingest` generates fresh signals live, and falls back to the
-   bank only if a request fails.
-
-> Never put an API key in client-side code. The serverless function exists
-> precisely so the key stays on the server.
-
-To test the function locally, use the Vercel CLI: `vercel dev`.
+> Never put the API key in client code — `lib/voice.js` runs server-side only.
 
 ---
 
 ## Project structure
 
+See `CLAUDE.md` for a full map and contribution notes.
+
 ```
-api/generate.js            Vercel serverless function (live generation proxy)
-index.html                 Vite entry, loads the font
-src/
-  main.jsx                 React mount
-  App.jsx                  composition
-  index.css                all styles (phosphor terminal theme)
-  hooks/useNewsroom.js     state, timers, boot sequence, ingest, commands
-  lib/
-    generate.js            live-fetch with offline fallback
-    util.js                small display helpers
-  data/
-    seed.js                signals shown on first load
-    bank.js                offline signal bank (non-repeating draw)
-  components/              Masthead, StatGrid, Console, Feed, CommandLine
+api/          feed.js · ingest.js · cron.js          (Vercel functions)
+lib/          feeds · rss · voice · store · ingest-core (server logic)
+src/          React app (components, hook, data, styles)
+vercel.json   cron schedule
 ```
 
 ---
