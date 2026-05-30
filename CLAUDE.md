@@ -77,9 +77,16 @@ Optional: `CRON_SECRET`.
 
 ## Good next tasks (ideas)
 
-- Cross-source de-duplication (same story from multiple feeds) — currently only
-  exact-link dedupe via the `seen` set.
+- Cross-source de-duplication is in place (Jaccard 0.4 over stemmed tokens,
+  with source-priority pick-best per cluster + 200-fingerprint cross-run check
+  in `lib/dedup.js`). It handles the common case — three sources running the
+  same OpenAI launch in similar wording will collapse to one item. The known
+  limitation is terse official headlines like "Introducing GPT-5" vs wordy
+  coverage of the same event: too few shared tokens for any threshold to
+  anchor. Fixing this well would need NER or a small product-name allow-list.
 - A "recalculating…" micro-animation when the AGI estimate resets.
-- Per-source weighting so OpenAI's own feed ranks above aggregators.
+- Per-source weighting beyond the current FEEDS-array order.
 - A small RSS/JSON output of the rewritten feed (meta: a deadpan feed of feeds).
+- Newsletter signup + small "built by" footer (in-voice) for if/when the site
+  catches traction — captured-audience play, not an SEO play.
 - Wire the same `runIngest` into a GHL workflow if mirroring there.
