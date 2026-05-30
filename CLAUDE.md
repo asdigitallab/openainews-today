@@ -65,7 +65,7 @@ npm run build     # production frontend -> dist/
 
 See `.env.example`. Needed for the live experience: `ANTHROPIC_API_KEY` and an
 Upstash Redis pair (`KV_REST_API_URL`/`KV_REST_API_TOKEN` or `UPSTASH_*`).
-Optional: `CRON_SECRET`.
+Optional: `CRON_SECRET`. Optional analytics: `VITE_GA_ID` (GA4 measurement ID, e.g. `G-XXXXXXXXXX`; must be set in Vercel before building since Vite inlines it at build time).
 
 ## Deploy (Vercel)
 

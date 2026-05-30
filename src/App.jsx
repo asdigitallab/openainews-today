@@ -1,3 +1,4 @@
+import Analytics from './components/Analytics.jsx'
 import Masthead from './components/Masthead.jsx'
 import StatGrid from './components/StatGrid.jsx'
 import Console from './components/Console.jsx'
@@ -9,6 +10,7 @@ export default function App() {
   const nr = useNewsroom()
   return (
     <>
+      <Analytics />
       <div className="wrap">
         <Masthead />
         <StatGrid
