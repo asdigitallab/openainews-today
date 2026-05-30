@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-30",
+  "observation": "Several teams shipped systems today. NVIDIA improved a small model on a narrow benchmark, Nous Research built a tool for managing tools, and a startup released a dataset documenting what other AI systems had already done. Humans, meanwhile, searched for OpenAI's stock price, a phone OpenAI has not made, and how to stop hiccups. No public offering was announced. Human behavior remained consistent across software generations.",
+  "forecast": [
+    "Probability of another model announcement: HIGH",
+    "Probability humans agree on what changed: LOW",
+    "Probability someone ships 'ChatGPT for [profession]': INEVITABLE"
+  ],
+  "signalCount": 8,
+  "seed": true
+}

@@ -91,6 +91,10 @@ Optional: `CRON_SECRET`. Optional analytics: `VITE_GA_ID` (GA4 measurement ID, e
 - Newsletter signup + small "built by" footer (in-voice) for if/when the site
   catches traction — captured-audience play, not an SEO play.
 - Wire the same `runIngest` into a GHL workflow if mirroring there.
+
+## Daily Machine Observation
+
+Daily 23:00 UTC cron (`/api/observe`) reads the recent feed signals + `trends.json`, generates one 90/10-rule paragraph + 3-line forecast via `lib/observe-core.js`, and stores it per-date in Redis (key `obs:YYYY-MM-DD`, index `obs:dates`). Accessible at `/archive` and `/archive/:date`. The archive is the project's long-term asset — observations are never overwritten once stored.
 - HUMAN BEHAVIOR LOG (src/components/HumanBehaviorLog.jsx + src/data/trends.json):
   Google Trends panic telemetry between the system log and the feed. Manual
   refresh via `npm run trends:update -- path/to/trends.csv` (needs

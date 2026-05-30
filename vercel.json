@@ -1,9 +1,14 @@
 {
   "crons": [
-    { "path": "/api/cron", "schedule": "0 */2 * * *" }
+    { "path": "/api/cron", "schedule": "0 */2 * * *" },
+    { "path": "/api/observe", "schedule": "0 23 * * *" }
   ],
   "functions": {
     "api/cron.js": { "maxDuration": 30 },
-    "api/ingest.js": { "maxDuration": 30 }
-  }
+    "api/ingest.js": { "maxDuration": 30 },
+    "api/observe.js": { "maxDuration": 30 }
+  },
+  "rewrites": [
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
 }

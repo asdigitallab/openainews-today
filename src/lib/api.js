@@ -33,3 +33,22 @@ export async function ingestOne() {
     return { item: fromBank(), mode: 'bank' }
   }
 }
+
+// Daily Machine Observations — the archive / the machine's memory.
+export async function fetchObservations() {
+  try {
+    const r = await fetch('/api/observations')
+    if (!r.ok) throw new Error('status ' + r.status)
+    const d = await r.json()
+    return Array.isArray(d.items) ? d.items : []
+  } catch { return [] }
+}
+
+export async function fetchObservation(date) {
+  try {
+    const r = await fetch('/api/observations?date=' + encodeURIComponent(date))
+    if (!r.ok) throw new Error('status ' + r.status)
+    const d = await r.json()
+    return d.item || null
+  } catch { return null }
+}
