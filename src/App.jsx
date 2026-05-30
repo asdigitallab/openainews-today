@@ -1,5 +1,6 @@
 import Analytics from './components/Analytics.jsx'
 import HumanBehaviorLog from './components/HumanBehaviorLog.jsx'
+import MissionStatus from './components/MissionStatus.jsx'
 import Masthead from './components/Masthead.jsx'
 import StatGrid from './components/StatGrid.jsx'
 import Console from './components/Console.jsx'
@@ -14,6 +15,7 @@ export default function App() {
       <Analytics />
       <div className="wrap">
         <Masthead />
+        <MissionStatus />
         <StatGrid
           agiSecs={nr.agiSecs}
           daysSince={nr.daysSince}

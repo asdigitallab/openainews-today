@@ -23,6 +23,7 @@ Frontend (Vite + React)
   src/App.jsx                 composition
   src/hooks/useNewsroom.js    all state, timers, boot sequence, ingest, commands
   src/components/             Masthead, StatGrid, Console, Feed, CommandLine
+  src/components/MissionStatus.jsx  fixed identity block under masthead — hardcoded, intentionally never changes, never rotated
   src/lib/api.js              fetchFeed() + ingestOne() (calls the backend)
   src/lib/util.js             display helpers
   src/data/seed.js            first-load signals (used only if store is empty)

@@ -89,3 +89,10 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:51;
 .hbl-q .pct.hot{color:var(--alert)}
 .hbl-note{color:var(--dim);font-size:12.5px;margin-top:1px}
 .hbl-foot{color:var(--dim2);font-size:11px;font-style:italic;margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+
+/* mission status — the machine's standing objective */
+.mission{border:1px solid var(--line);border-left:2px solid var(--amber-dim);background:rgba(10,16,10,.4);padding:12px 16px;margin-bottom:14px}
+.mission-head{color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}
+.mission-active{color:var(--amber);font-weight:500;animation:pulse-active 2.4s ease-in-out infinite}
+@keyframes pulse-active{0%,100%{opacity:1}50%{opacity:.45}}
+.mission-body{color:var(--phos);font-size:13.5px;line-height:1.6}
