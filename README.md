@@ -1,7 +1,7 @@
 # OPENAINEWS.today
 
 The autonomous newsroom that has become mildly exhausted by the pace of AI
-announcements. It pulls **real AI headlines** from RSS and rewrites them in the
+announcements. OPENAINEWS.today = AI announcements + human panic telemetry. It pulls **real AI headlines** from RSS and rewrites them in the
 voice of a cold, tired machine — rendered as a retro phosphor terminal.
 
 > "OpenAI released a new reasoning model today. Benchmarks improved 12%.

@@ -1,4 +1,5 @@
 import Analytics from './components/Analytics.jsx'
+import HumanBehaviorLog from './components/HumanBehaviorLog.jsx'
 import Masthead from './components/Masthead.jsx'
 import StatGrid from './components/StatGrid.jsx'
 import Console from './components/Console.jsx'
@@ -21,6 +22,7 @@ export default function App() {
           recalcKey={nr.recalcKey}
         />
         <Console lines={nr.lines} />
+        <HumanBehaviorLog />
         <Feed items={nr.feed} />
       </div>
       <CommandLine busy={nr.busy} onCommand={nr.runCommand} />

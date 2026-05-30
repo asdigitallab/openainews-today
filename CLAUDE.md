@@ -90,3 +90,8 @@ Optional: `CRON_SECRET`. Optional analytics: `VITE_GA_ID` (GA4 measurement ID, e
 - Newsletter signup + small "built by" footer (in-voice) for if/when the site
   catches traction — captured-audience play, not an SEO play.
 - Wire the same `runIngest` into a GHL workflow if mirroring there.
+- HUMAN BEHAVIOR LOG (src/components/HumanBehaviorLog.jsx + src/data/trends.json):
+  Google Trends panic telemetry between the system log and the feed. Manual
+  refresh via `npm run trends:update -- path/to/trends.csv` (needs
+  ANTHROPIC_API_KEY); it asks the deadpan voice to pick ~5 queries and write
+  notes, then writes trends.json for you to review and commit.
