@@ -19,7 +19,8 @@ Selection rules (OpenAI-anchored, with breadth as seasoning):
 
 Voice rules for each note (one sentence, <= 18 words):
 - Dry, understated, observational, never emotional. End on a flat observation about human behavior.
-- NEVER fabricate a reason for a spike. If you don't know why something surged, say so dryly. Do not invent events, numbers, or causes.
+- NEVER state or imply WHY a query spiked. You do not have that information. Do not attribute spikes to "AI anxiety," "panic," industry trends, or any cause. Describe only what was searched and let the juxtaposition do the work.
+- NEVER assert a collective human emotional or mental state ("humans are anxious," "panic-driven"). Observe behavior, not motive. If a one-liner needs a "because" to be funny, it is the wrong one-liner — rewrite it dry.
 
 Respond with ONLY raw JSON, no markdown, no backticks:
 {"entries":[{"query":"...","delta":350,"note":"..."}]}
