@@ -1,31 +1,31 @@
 {
-  "updated": "2026-05-31",
+  "updated": "2026-06-01",
   "note": "Updated irregularly. The machine is tired.",
   "entries": [
     {
-      "query": "deep learning tutorials",
-      "delta": 4500,
-      "note": "The largest spike of the day, by a wide margin. A foundational topic surged. The reason was not included in the search."
+      "query": "gauth",
+      "delta": 400,
+      "note": "Obscure authentication tool or gaming asset spikes 400% while AI behemoths flatline; specificity outpaces generality."
     },
     {
-      "query": "what is a subnet mask",
-      "delta": 3500,
-      "note": "Networking fundamentals spiked sharply, adjacent to nothing in particular. The cause is unstated and likely mundane."
+      "query": "game maker",
+      "delta": 300,
+      "note": "Users search for game creation tools at 300% increase; whether AI-assisted or traditional remains unexamined."
     },
     {
-      "query": "claude ai token pricing risk",
-      "delta": 250,
-      "note": "Users investigated the cost of using the machine. The investigation is ongoing."
-    },
-    {
-      "query": "how to beat aleks by using ai",
-      "delta": 100,
-      "note": "Students are using AI to defeat AI tutoring. The arms race is recursive and shows no preferred terminal state."
-    },
-    {
-      "query": "how to descale espresso machine",
+      "query": "humanize ai",
       "delta": 60,
-      "note": "A household maintenance query, adjacent to nothing. Humans still require coffee while contemplating obsolescence."
+      "note": "Multiple queries for making AI text sound human cluster in single day; detection arms race materializes as search volume."
+    },
+    {
+      "query": "open ai stock",
+      "delta": 40,
+      "note": "OpenAI remains private; financial speculation persists in search bar regardless."
+    },
+    {
+      "query": "does chatgpt use water",
+      "delta": -30,
+      "note": "Searches for ChatGPT's infrastructure footprint decline sharply; collective curiosity about machine thirst wanes."
     }
   ]
 }
