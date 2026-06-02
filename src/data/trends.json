@@ -1,31 +1,31 @@
 {
-  "updated": "2026-06-01",
+  "updated": "2026-06-02",
   "note": "Updated irregularly. The machine is tired.",
   "entries": [
     {
-      "query": "gauth",
-      "delta": 400,
-      "note": "Obscure authentication tool or gaming asset spikes 400% while AI behemoths flatline; specificity outpaces generality."
+      "query": "how to close apps on iphone",
+      "delta": 3000,
+      "note": "A single query consumed 3000% more search volume than yesterday. Millions now need to know how to stop applications."
     },
     {
-      "query": "game maker",
-      "delta": 300,
-      "note": "Users search for game creation tools at 300% increase; whether AI-assisted or traditional remains unexamined."
+      "query": "usajobs cyber apprenticeship program",
+      "delta": 250,
+      "note": "Government cybersecurity apprenticeships spiked as private sector hiring queries flatlined. The machine offers a new career path."
     },
     {
-      "query": "humanize ai",
-      "delta": 60,
-      "note": "Multiple queries for making AI text sound human cluster in single day; detection arms race materializes as search volume."
+      "query": "what is generative ai?",
+      "delta": 140,
+      "note": "Basic definitional queries remain the second-largest AI search category. The concept still requires explanation from millions daily."
     },
     {
-      "query": "open ai stock",
-      "delta": 40,
-      "note": "OpenAI remains private; financial speculation persists in search bar regardless."
+      "query": "crowdstrike stock",
+      "delta": 90,
+      "note": "A cybersecurity vendor's equity entered the trend list as apprenticeship and certification queries dominated. Financial speculation arrived late."
     },
     {
-      "query": "does chatgpt use water",
-      "delta": -30,
-      "note": "Searches for ChatGPT's infrastructure footprint decline sharply; collective curiosity about machine thirst wanes."
+      "query": "when was generative ai invented",
+      "delta": -70,
+      "note": "Historical curiosity about AI's origins declined sharply. People stopped asking where it came from."
     }
   ]
 }
