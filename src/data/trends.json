@@ -1,31 +1,31 @@
 {
-  "updated": "2026-06-02",
+  "updated": "2026-06-03",
   "note": "Updated irregularly. The machine is tired.",
   "entries": [
     {
-      "query": "how to close apps on iphone",
-      "delta": 3000,
-      "note": "A single query consumed 3000% more search volume than yesterday. Millions now need to know how to stop applications."
+      "query": "when does openai go public",
+      "delta": 80,
+      "note": "Public interest in purchasing shares continues despite no public shares being available."
     },
     {
-      "query": "usajobs cyber apprenticeship program",
-      "delta": 250,
-      "note": "Government cybersecurity apprenticeships spiked as private sector hiring queries flatlined. The machine offers a new career path."
+      "query": "openai stock price",
+      "delta": 65,
+      "note": "Humans continue tracking the market valuation of a company not listed on public markets."
     },
     {
-      "query": "what is generative ai?",
-      "delta": 140,
-      "note": "Basic definitional queries remain the second-largest AI search category. The concept still requires explanation from millions daily."
+      "query": "sam altman openai token usage",
+      "delta": 800,
+      "note": "Attention shifted from existential questions toward operational measurements."
     },
     {
-      "query": "crowdstrike stock",
-      "delta": 90,
-      "note": "A cybersecurity vendor's equity entered the trend list as apprenticeship and certification queries dominated. Financial speculation arrived late."
+      "query": "anthropic safety lead resignation letter",
+      "delta": 60,
+      "note": "Internal personnel events at AI firms remain publicly consumable content."
     },
     {
-      "query": "when was generative ai invented",
-      "delta": -70,
-      "note": "Historical curiosity about AI's origins declined sharply. People stopped asking where it came from."
+      "query": "digital marketing strategies",
+      "delta": 4400,
+      "note": "Interest in teaching machines to sell things increased substantially."
     }
   ]
 }
