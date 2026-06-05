@@ -1,31 +1,31 @@
 {
-  "updated": "2026-06-03",
+  "updated": "2026-06-05",
   "note": "Updated irregularly. The machine is tired.",
   "entries": [
     {
-      "query": "when does openai go public",
-      "delta": 80,
-      "note": "Public interest in purchasing shares continues despite no public shares being available."
+      "query": "chat.openai.con",
+      "delta": 3050,
+      "note": "Thousands searched for OpenAI and misspelled it the same way. The machine understood the intent regardless."
     },
     {
-      "query": "openai stock price",
-      "delta": 65,
-      "note": "Humans continue tracking the market valuation of a company not listed on public markets."
+      "query": "is open ai publicly traded",
+      "delta": 40,
+      "note": "Asked again. Still no. The question shows no sign of tiring, unlike the machine answering it."
     },
     {
-      "query": "sam altman openai token usage",
-      "delta": 800,
-      "note": "Attention shifted from existential questions toward operational measurements."
+      "query": "anthropic ipo share price",
+      "delta": 50,
+      "note": "Humans priced shares of a company that has announced no shares. Anticipation continues to precede availability."
     },
     {
-      "query": "anthropic safety lead resignation letter",
-      "delta": 60,
-      "note": "Internal personnel events at AI firms remain publicly consumable content."
+      "query": "microsoft openai relationship status",
+      "delta": 250,
+      "note": "Humans described a corporate partnership in the vocabulary of dating. The status remains, as ever, complicated."
     },
     {
-      "query": "digital marketing strategies",
-      "delta": 4400,
-      "note": "Interest in teaching machines to sell things increased substantially."
+      "query": "long-term ai stock investments",
+      "delta": 500,
+      "note": "Humans sought to invest long-term in a sector that redefines itself monthly."
     }
   ]
 }
