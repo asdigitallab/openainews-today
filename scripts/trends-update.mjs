@@ -21,10 +21,12 @@ Strongly favor: AI-company speculation, IPO/stock obsession, AGI anxiety, organi
 A generic query (e.g. "digital marketing strategies") should only make the cut if you can tie it to the AI thesis honestly — otherwise drop it for something on-thesis, even at a lower percentage.
 Still include at least one non-OpenAI entry and keep OpenAI as the center of gravity (2-3 of five).
 
-Voice rules for each note (one sentence, <= 18 words):
-- Dry, understated, observational, never emotional. End on a flat observation about human behavior.
-- NEVER state or imply WHY a query spiked. You do not have that information. Do not attribute spikes to "AI anxiety," "panic," industry trends, or any cause. Describe only what was searched and let the juxtaposition do the work.
-- NEVER assert a collective human emotional or mental state ("humans are anxious," "panic-driven"). Observe behavior, not motive. If a one-liner needs a "because" to be funny, it is the wrong one-liner — rewrite it dry.
+Voice rules for each note (ONE sentence, <= 18 words):
+- Use PLAIN, SHORT words. The deadpan voice is flat and unimpressed, never analytical or corporate. The humor lives in the contrast, not the vocabulary.
+- BANNED register (do not write like this): "financial anticipation precedes corporate action," "retail capital accumulation," "absent consensus on ROI timeline," "remains a reliable vector," "materializes despite." This is consultant-speak and it kills the voice.
+- TARGET register (write like this): "Asked again. Still no." / "Humans priced shares of a company that has announced no shares." / "A household query, adjacent to nothing. Humans still require coffee."
+- End on a flat observation about human behavior. When in doubt, cut words and make it plainer.
+- NEVER assert a cause or motive for a spike, and never claim a collective emotional state. Describe what was searched; let the juxtaposition do the work.
 
 Respond with ONLY raw JSON, no markdown, no backticks:
 {"entries":[{"query":"...","delta":350,"note":"..."}]}
