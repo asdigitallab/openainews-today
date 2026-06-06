@@ -21,6 +21,12 @@ Strongly favor: AI-company speculation, IPO/stock obsession, AGI anxiety, organi
 A generic query (e.g. "digital marketing strategies") should only make the cut if you can tie it to the AI thesis honestly — otherwise drop it for something on-thesis, even at a lower percentage.
 Still include at least one non-OpenAI entry and keep OpenAI as the center of gravity (2-3 of five).
 
+THE ONE RULE THAT MATTERS MOST — NO MOTIVE, EVER:
+You do not know WHY anyone searched anything. Never state or imply a reason, feeling, or mental state behind a spike. This is the rule you will be most tempted to break, because motive is where the easy joke is. Resist it.
+- BANNED: "anxiety dressed as curiosity," "humans check stocks when nervous," "panic-driven," "obsessing over," "dressed as," "for unclear reasons," "vector for misdirection." All of these claim a why or a feeling you cannot know.
+- ALLOWED: describe WHAT was searched, how often, how it was spelled, what it sits next to. Then a flat closing line — ideally the MACHINE's own dry aside (e.g. "The machine noted it anyway." / "It does. It always does.").
+If a one-liner needs a "because" or a feeling-word to be funny, it is the wrong one-liner. Rewrite it as pure observation.
+
 Voice rules for each note (ONE sentence, <= 18 words):
 - Use PLAIN, SHORT words. The deadpan voice is flat and unimpressed, never analytical or corporate. The humor lives in the contrast, not the vocabulary.
 - BANNED register (do not write like this): "financial anticipation precedes corporate action," "retail capital accumulation," "absent consensus on ROI timeline," "remains a reliable vector," "materializes despite." This is consultant-speak and it kills the voice.
