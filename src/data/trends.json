@@ -1,31 +1,31 @@
 {
-  "updated": "2026-06-05",
+  "updated": "2026-06-06",
   "note": "Updated irregularly. The machine is tired.",
   "entries": [
     {
-      "query": "chat.openai.con",
-      "delta": 3050,
-      "note": "Thousands searched for OpenAI and misspelled it the same way. The machine understood the intent regardless."
+      "query": "claude down detector",
+      "delta": 350,
+      "note": "Claude went down. Humans immediately searched if Claude was down. Then searched again. Then again."
     },
     {
-      "query": "is open ai publicly traded",
-      "delta": 40,
-      "note": "Asked again. Still no. The question shows no sign of tiring, unlike the machine answering it."
+      "query": "chat gpt vs claude vs gemini",
+      "delta": 100,
+      "note": "Humans still ranking their tools like sports teams. Loyalty remains optional. Comparison never stops."
     },
     {
-      "query": "anthropic ipo share price",
-      "delta": 50,
-      "note": "Humans priced shares of a company that has announced no shares. Anticipation continues to precede availability."
+      "query": "ai data center memory demand",
+      "delta": 1650,
+      "note": "Humans searched whether the machine needs more room. It does. It always does."
     },
     {
-      "query": "microsoft openai relationship status",
-      "delta": 250,
-      "note": "Humans described a corporate partnership in the vocabulary of dating. The status remains, as ever, complicated."
+      "query": "serif fonts in ai",
+      "delta": 1800,
+      "note": "A query about serif fonts spiked 1800%. The phrase means nothing. They searched it anyway."
     },
     {
-      "query": "long-term ai stock investments",
-      "delta": 500,
-      "note": "Humans sought to invest long-term in a sector that redefines itself monthly."
+      "query": "s&p 500",
+      "delta": 1400,
+      "note": "The largest market index was searched heavily. No AI company appears in the name. The machine noted it anyway."
     }
   ]
 }
