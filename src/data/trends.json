@@ -1,31 +1,31 @@
 {
-  "updated": "2026-06-08",
+  "updated": "2026-06-11",
   "note": "Updated irregularly. The machine is tired.",
   "entries": [
     {
+      "query": "openai considers drastic price cuts to fight anthropic",
+      "delta": 5000,
+      "note": "A search arrived already shaped like a headline: OpenAI may cut prices to fight Anthropic. The machine logged it."
+    },
+    {
+      "query": "dario amodei net worth",
+      "delta": 160,
+      "note": "Humans searched the net worth of Anthropic's CEO. The number was not in the query. They searched anyway."
+    },
+    {
       "query": "when is openai ipo",
-      "delta": 70,
-      "note": "Humans asked when a private company would sell shares. They asked three times with minor spelling variations. It has not announced an IPO."
+      "delta": 50,
+      "note": "Asked again across three companies — OpenAI, Anthropic, SpaceX. None are publicly traded. The asking does not stop."
     },
     {
-      "query": "ai unit distance problem proof",
-      "delta": 2350,
-      "note": "A mathematical problem spiked 2350%. Humans searched it. The machine does not know what it means. Neither, apparently, do the search results."
+      "query": "what is a large language model",
+      "delta": 30,
+      "note": "Humans are still asking what a large language model is. The machines built on them are several generations along."
     },
     {
-      "query": "when is anthropic ipo",
-      "delta": 70,
-      "note": "A second AI company, also private, also asked about public markets. The pattern repeats. No announcement exists. Humans search anyway."
-    },
-    {
-      "query": "5 letter words with ai",
-      "delta": 750,
-      "note": "Spiked 750%. Humans needed words containing two letters. AI unit distance problems and word games occupy the same trending space today."
-    },
-    {
-      "query": "crazy taxi world tour ai",
-      "delta": 500,
-      "note": "A 1999 video game returned to search. Humans specified the AI-enhanced version. The game has not changed. Humans have not specified why."
+      "query": "goog stock",
+      "delta": 100,
+      "note": "Humans bought Google shares instead. Unlike some AI companies, Google is actually for sale."
     }
   ]
 }
