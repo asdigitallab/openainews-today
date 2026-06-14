@@ -21,7 +21,7 @@ export default function Home() {
         <HumanBehaviorLog />
         <Feed items={nr.feed} />
       </div>
-      <CommandLine busy={nr.busy} onCommand={nr.runCommand} />
+      <CommandLine busy={nr.busy} onCommand={nr.runCommand} lastAck={nr.lastAck} />
     </>
   )
 }

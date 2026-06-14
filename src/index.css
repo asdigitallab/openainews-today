@@ -76,6 +76,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:51;
 .prompt input{flex:1;background:transparent;border:0;outline:0;color:var(--phos-bright);font-family:inherit;font-size:13.5px;caret-color:var(--phos)}
 .prompt input::placeholder{color:var(--dim2)}
 .hint{color:var(--dim2);font-size:11px;margin-top:6px;text-align:center}.hint b{color:var(--dim)}
+.hint-ack{color:var(--dim);}
 ::selection{background:var(--phos);color:var(--bg)}
 @media(max-width:560px){.logo{font-size:18px}}
 

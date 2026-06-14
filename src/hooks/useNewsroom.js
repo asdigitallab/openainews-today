@@ -45,6 +45,8 @@ export function useNewsroom() {
   const [fatigue, setFatigue] = useState(6)
   const [busy, setBusy] = useState(false)
   const [recalcKey, setRecalcKey] = useState(0)
+  const [lastAck, setLastAck] = useState({ text: '', key: 0 })
+  const ackKey = useRef(0)
 
   const busyRef = useRef(false)
   busyRef.current = busy
@@ -91,11 +93,12 @@ export function useNewsroom() {
       const v = raw.trim().toLowerCase()
       if (!v) return
       log('newsroom@today:~$ ' + v, 'you')
-      if (v === 'ingest' || v === 'i') ingest()
-      else if (v === 'agi') { recalcAGI(false); log('> recalculated on request. note: this changes nothing.') }
-      else if (v === 'panic') { setPanic((p) => p + 12); setFatigue((f) => f + 1); log('> panic increased on request. a strange ask, but recorded.') }
-      else if (v === 'calm') { setPanic((p) => p - 15); log('> panic reduced. the underlying situation is unchanged.') }
-      else if (v === 'clear') { setFeed([]); log('> feed cleared. the news will return. it always does.') }
+      const ack = (text) => setLastAck({ text, key: ++ackKey.current })
+      if (v === 'ingest' || v === 'i') { ingest(); ack('signal ingested.') }
+      else if (v === 'agi') { recalcAGI(false); log('> recalculated on request. note: this changes nothing.'); ack('estimate recalculated. this changes nothing.') }
+      else if (v === 'panic') { setPanic((p) => p + 12); setFatigue((f) => f + 1); log('> panic increased on request. a strange ask, but recorded.'); ack('panic index raised.') }
+      else if (v === 'calm') { setPanic((p) => p - 15); log('> panic reduced. the underlying situation is unchanged.'); ack('panic index lowered.') }
+      else if (v === 'clear') { setFeed([]); log('> feed cleared. the news will return. it always does.'); ack('feed cleared.') }
       else if (RESP[v]) log(RESP[v])
       else log("> unknown command: '" + v + "'. the machine does not understand, but is used to that.")
     },
@@ -159,5 +162,5 @@ export function useNewsroom() {
     return () => clearInterval(id)
   }, [recalcAGI])
 
-  return { lines, feed, agiSecs, daysSince, panic, fatigue, busy, recalcKey, ingest, runCommand }
+  return { lines, feed, agiSecs, daysSince, panic, fatigue, busy, recalcKey, lastAck, ingest, runCommand }
 }

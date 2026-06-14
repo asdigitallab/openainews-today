@@ -9,15 +9,25 @@ const PLACEHOLDERS = [
   'try: help ↵',
 ]
 
-export default function CommandLine({ busy, onCommand }) {
+export default function CommandLine({ busy, onCommand, lastAck }) {
   const [val, setVal] = useState('')
   const [ph, setPh] = useState(0)
+  const [ackVisible, setAckVisible] = useState(false)
   const inputRef = useRef(null)
+  const ackTimer = useRef(null)
 
   useEffect(() => {
     const id = setInterval(() => setPh((p) => (p + 1) % PLACEHOLDERS.length), 2600)
     return () => clearInterval(id)
   }, [])
+
+  useEffect(() => {
+    if (!lastAck || !lastAck.text) return
+    setAckVisible(true)
+    clearTimeout(ackTimer.current)
+    ackTimer.current = setTimeout(() => setAckVisible(false), 2500)
+    return () => clearTimeout(ackTimer.current)
+  }, [lastAck?.key])
 
   const onKeyDown = (e) => {
     if (e.key !== 'Enter') return
@@ -59,7 +69,11 @@ export default function CommandLine({ busy, onCommand }) {
             placeholder={PLACEHOLDERS[ph]}
           />
         </div>
-        <div className="hint">// this terminal is live — tap a command or type one</div>
+        <div className="hint">
+          {ackVisible && lastAck?.text
+            ? <span className="hint-ack">// {lastAck.text}</span>
+            : '// this terminal is live — tap a command or type one'}
+        </div>
       </div>
     </div>
   )
