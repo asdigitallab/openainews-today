@@ -1,11 +1,22 @@
 import { useEffect, useRef, useState } from 'react'
 
+const CHIPS = ['ingest', 'agi', 'panic', 'calm', 'whoami', 'clear', 'help']
+const PLACEHOLDERS = [
+  'type a command — or tap one below',
+  'try: ingest ↵',
+  'try: agi ↵',
+  'try: whoami ↵',
+  'try: help ↵',
+]
+
 export default function CommandLine({ busy, onCommand }) {
   const [val, setVal] = useState('')
+  const [ph, setPh] = useState(0)
   const inputRef = useRef(null)
 
   useEffect(() => {
-    inputRef.current?.focus()
+    const id = setInterval(() => setPh((p) => (p + 1) % PLACEHOLDERS.length), 2600)
+    return () => clearInterval(id)
   }, [])
 
   const onKeyDown = (e) => {
@@ -14,13 +25,29 @@ export default function CommandLine({ busy, onCommand }) {
     setVal('')
   }
 
+  const run = (cmd) => {
+    if (busy && cmd === 'ingest') return
+    onCommand(cmd)
+    inputRef.current?.focus()
+  }
+
   return (
     <div className="cli">
       <div className="cli-inner">
-        <div
-          className={'prompt' + (busy ? ' busy' : '')}
-          onClick={() => inputRef.current?.focus()}
-        >
+        <div className="cli-chips" role="group" aria-label="terminal commands">
+          {CHIPS.map((c) => (
+            <button
+              key={c}
+              type="button"
+              className={'chip' + (c === 'ingest' ? ' chip-primary' : '')}
+              onClick={() => run(c)}
+              disabled={busy && c === 'ingest'}
+            >
+              {c === 'ingest' && busy ? 'ingesting…' : c}
+            </button>
+          ))}
+        </div>
+        <div className={'prompt' + (busy ? ' busy' : '')} onClick={() => inputRef.current?.focus()}>
           <span className="ps1">newsroom@today:~$</span>
           <input
             ref={inputRef}
@@ -29,13 +56,10 @@ export default function CommandLine({ busy, onCommand }) {
             onKeyDown={onKeyDown}
             autoComplete="off"
             spellCheck="false"
-            placeholder="type 'ingest' to pull a new signal — or 'help'"
+            placeholder={PLACEHOLDERS[ph]}
           />
         </div>
-        <div className="hint">
-          commands: <b>ingest</b> · <b>agi</b> · <b>panic</b> · <b>calm</b> ·{' '}
-          <b>whoami</b> · <b>clear</b> · <b>help</b>
-        </div>
+        <div className="hint">// this terminal is live — tap a command or type one</div>
       </div>
     </div>
   )
