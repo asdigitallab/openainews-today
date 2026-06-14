@@ -1,31 +1,31 @@
 {
-  "updated": "2026-06-12",
+  "updated": "2026-06-14",
   "note": "Updated irregularly. The machine is tired.",
   "entries": [
     {
-      "query": "stream disconnected before an error occurred while processing your request",
-      "delta": 1750,
-      "note": "Humans pasted an entire OpenAI error message into the search bar, verbatim, hoping the internet would fix it for them."
+      "query": "anthropic claude fable 5 shutdown",
+      "delta": 5000,
+      "note": "Humans searched, in many spellings, whether Anthropic's Fable 5 model had been banned. The machine notes the questions, not the verdict."
     },
     {
-      "query": "when does anthropic go public",
-      "delta": 160,
-      "note": "Asked again across OpenAI, Anthropic, and SpaceX. None are publicly traded. The asking does not stop."
-    },
-   {
-     "query": "openai ona",
-    "delta": 5000,
-    "note": "Ona, a company that runs background coding agents, is joining OpenAI. The machines are absorbing the companies that manage the machines."
-     },
-    {
-      "query": "who owns chatgpt",
-      "delta": 40,
-      "note": "Humans asked who owns ChatGPT. The answer has not changed. The question keeps arriving anyway."
+      "query": "us crackdown anthropic ai models",
+      "delta": 5000,
+      "note": "Queries tied the model news to a government action. Humans assembled a story from search bars faster than any official one arrived."
     },
     {
-      "query": "google ai plus vs pro",
-      "delta": 40,
-      "note": "Google shipped two paid AI tiers. Humans now search which of the two tiers they are supposed to want."
+      "query": "anthropic",
+      "delta": 50,
+      "note": "The company name was searched as much as OpenAI today. Attention moved, as attention does."
+    },
+    {
+      "query": "openai",
+      "delta": 50,
+      "note": "Searched at the same rate as its competitor. The center of gravity held, for once not by much."
+    },
+    {
+      "query": "andrej karpathy",
+      "delta": 250,
+      "note": "Humans searched a researcher's name. The data does not say why. They rarely do."
     }
   ]
 }
